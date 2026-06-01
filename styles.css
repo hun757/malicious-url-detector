@@ -421,3 +421,17 @@ td {
 .clear-button:hover {
   background: #b91c1c;
 }
+.ml-section {
+  margin-top: 16px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.ml-note {
+  font-size: 11px;
+  color: #94a3b8;
+  margin: 8px 0 0;
+  line-height: 1.4;
+}

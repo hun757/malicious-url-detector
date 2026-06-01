@@ -6,6 +6,35 @@ chrome.tabs.query(
     document.getElementById("url").textContent = currentURL;
 
     const result = analyzeURL(currentURL);
+    fetch("http://127.0.0.1:5000/predict", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    url: currentURL
+  })
+})
+.then(response => response.json())
+.then(data => {
+  document.getElementById("mlProbability").textContent =
+    data.phishing_probability;
+
+  const mlLabel = document.getElementById("mlLabel");
+  mlLabel.textContent = data.ml_label;
+
+  if (data.ml_label === "Legitimate") {
+    mlLabel.className = "status-badge safe-badge";
+  } else if (data.ml_label === "Suspicious") {
+    mlLabel.className = "status-badge suspicious-badge";
+  } else {
+    mlLabel.className = "status-badge high-risk-badge";
+  }
+})
+.catch(error => {
+  console.error("Python ML backend error:", error);
+  document.getElementById("mlLabel").textContent = "Offline";
+});
 
     const statusElement = document.getElementById("status");
     const scoreElement = document.getElementById("score");
