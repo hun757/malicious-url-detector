@@ -1,10 +1,11 @@
 body {
-  width: 320px;
   font-family: Arial, sans-serif;
-  padding: 15px;
   background-color: #f8f9fa;
 }
-
+.popup-page {
+  width: 320px;
+  padding: 15px;
+}
 h2 {
   font-size: 18px;
   margin-bottom: 10px;
@@ -42,4 +43,119 @@ h2 {
 
 ul {
   padding-left: 20px;
+}
+.warning-page {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #111827, #1f2937);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+
+.warning-container {
+  width: 100%;
+  max-width: 760px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  text-align: center;
+}
+
+.warning-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #dc2626;
+  color: white;
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 72px;
+}
+
+.warning-container h1 {
+  margin: 0;
+  color: #dc2626;
+  font-size: 32px;
+}
+
+.warning-message {
+  color: #4b5563;
+  font-size: 16px;
+  margin: 15px 0 25px;
+}
+
+.risk-card {
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 25px;
+}
+
+.risk-label {
+  margin: 0;
+  color: #7f1d1d;
+  font-weight: bold;
+}
+
+.risk-score {
+  margin: 8px 0 0;
+  color: #dc2626;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.section {
+  text-align: left;
+  margin-top: 22px;
+}
+
+.section h3 {
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.warning-container .url-box {
+  background: #f3f4f6;
+  border-radius: 10px;
+  padding: 12px;
+  word-break: break-all;
+  font-size: 14px;
+  color: #374151;
+}
+
+.warning-container ul {
+  max-height: 180px;
+  overflow-y: auto;
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 15px 25px;
+  color: #374151;
+}
+
+.warning-container li {
+  margin-bottom: 8px;
+}
+
+.back-button {
+  margin-top: 25px;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 13px 28px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background: #b91c1c;
 }

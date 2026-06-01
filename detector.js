@@ -59,4 +59,8 @@ function analyzeURL(url) {
     status,
     reasons
   };
+ 
+}
+ if (typeof module !== "undefined") {
+  module.exports = { analyzeURL };
 }
