@@ -194,10 +194,10 @@ Python ML Prediction: 85%
 ## Screenshots
 
 ### Security Warning Page
-![Warning Page](C:\Users\pjhgn\OneDrive\사진\스크린샷\warning-page.png)
+![Warning Page] (warning-page.png.png)
 
 ### Security Dashboard
-![Dashboard](C:\Users\pjhgn\OneDrive\사진\스크린샷\dashboard.png)
+![Dashboard] (dashboard.png.png)
 
 ### Popup UI
-![Popup](C:\Users\pjhgn\OneDrive\사진\스크린샷\popup.png)
+![Popup] (popup.png.png)
