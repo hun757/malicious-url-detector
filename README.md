@@ -194,10 +194,10 @@ Python ML Prediction: 85%
 ## Screenshots
 
 ### Security Warning Page
-![Warning Page] (warning-page.png.png)
+![Warning Page](warning-page.png)
 
 ### Security Dashboard
-![Dashboard] (dashboard.png.png)
+![Dashboard] (dashboard.png)
 
 ### Popup UI
-![Popup] (popup.png.png)
+![Popup] (popup.png)
