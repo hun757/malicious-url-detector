@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Security Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-page">
+
+  <div class="dashboard-container">
+    <h1>Security Dashboard</h1>
+    <p class="dashboard-subtitle">URL scanning statistics and recent activity</p>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <p>Total Scanned</p>
+        <h2 id="totalScanned">0</h2>
+      </div>
+
+      <div class="stat-card safe-card">
+        <p>Safe</p>
+        <h2 id="safeCount">0</h2>
+      </div>
+
+      <div class="stat-card suspicious-card">
+        <p>Suspicious</p>
+        <h2 id="suspiciousCount">0</h2>
+      </div>
+
+      <div class="stat-card high-risk-card">
+        <p>High Risk</p>
+        <h2 id="highRiskCount">0</h2>
+      </div>
+
+      <div class="stat-card blocked-card">
+        <p>Blocked</p>
+        <h2 id="blockedCount">0</h2>
+      </div>
+    </div>
+
+    <div class="log-section">
+      <h2>Recent URL Scan Logs</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Domain</th>
+            <th>Score</th>
+            <th>Status</th>
+            <th>Blocked</th>
+          </tr>
+        </thead>
+        <tbody id="logTable"></tbody>
+      </table>
+    </div>
+
+    <button id="clearBtn" class="clear-button">Clear Statistics</button>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

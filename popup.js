@@ -8,17 +8,23 @@ chrome.tabs.query(
     const result = analyzeURL(currentURL);
 
     const statusElement = document.getElementById("status");
+    const scoreElement = document.getElementById("score");
+    const riskFill = document.getElementById("riskFill");
+
     statusElement.textContent = result.status;
+    scoreElement.textContent = result.score;
+    riskFill.style.width = result.score + "%";
 
     if (result.status === "Safe") {
-      statusElement.className = "safe";
+      statusElement.className = "status-badge safe-badge";
+      riskFill.className = "risk-fill safe-fill";
     } else if (result.status === "Suspicious") {
-      statusElement.className = "suspicious";
+      statusElement.className = "status-badge suspicious-badge";
+      riskFill.className = "risk-fill suspicious-fill";
     } else {
-      statusElement.className = "high-risk";
+      statusElement.className = "status-badge high-risk-badge";
+      riskFill.className = "risk-fill high-risk-fill";
     }
-
-    document.getElementById("score").textContent = result.score;
 
     const reasonsList = document.getElementById("reasons");
     reasonsList.innerHTML = "";
@@ -35,4 +41,10 @@ chrome.tabs.query(
       });
     }
   }
+  
 );
+document.getElementById("dashboardBtn").addEventListener("click", function() {
+  chrome.tabs.create({
+    url: chrome.runtime.getURL("dashboard.html")
+  });
+});

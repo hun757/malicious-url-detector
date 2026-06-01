@@ -1,26 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>URL Detector</title>
+  <meta charset="UTF-8">
+  <title>Malicious URL Detector</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="popup-page">
 
-  <h2>Malicious URL Detector</h2>
+  <div class="popup-card">
+    <div class="popup-header">
+      <div class="logo-circle">M</div>
+      <div>
+        <h2>URL Shield</h2>
+        <p>Real-time URL protection</p>
+      </div>
+    </div>
 
-  <p><strong>Current URL:</strong></p>
-  <div id="url" class="url-box">Loading...</div>
+    <div class="url-section">
+      <p class="label">Current URL</p>
+      <div id="url" class="popup-url-box">Loading...</div>
+    </div>
 
-  <div class="status-box">
-    <p><strong>Status:</strong> <span id="status">Checking...</span></p>
-    <p><strong>Risk Score:</strong> <span id="score">0</span>/100</p>
+    <div class="score-section">
+      <div class="score-top">
+        <span>Status</span>
+        <span id="status" class="status-badge">Checking</span>
+      </div>
+
+      <div class="score-number">
+        <span id="score">0</span>/100
+      </div>
+
+      <div class="risk-bar">
+        <div id="riskFill" class="risk-fill"></div>
+      </div>
+    </div>
+
+    <div class="reason-section">
+      <p class="label">Detection Reasons</p>
+      <ul id="reasons"></ul>
+    </div>
+    <button id="dashboardBtn" class="dashboard-button">
+        Open Dashboard
+    </button>
   </div>
-
-  <p><strong>Reasons:</strong></p>
-  <ul id="reasons"></ul>
 
   <script src="detector.js"></script>
   <script src="popup.js"></script>
-
 </body>
 </html>
