@@ -1,0 +1,14 @@
+
+{
+  "manifest_version": 3,
+  "name": "Malicious URL Detector",
+  "version": "1.0",
+  "description": "Detect suspicious URLs in real time.",
+  
+  "permissions": ["tabs"],
+
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
+ 
