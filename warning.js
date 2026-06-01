@@ -18,3 +18,24 @@ reasons.forEach(reason => {
 document.getElementById("backBtn").addEventListener("click", function() {
   window.location.href = "https://www.google.com";
 });
+
+document.getElementById("trustBtn").addEventListener("click", function() {
+  if (!blockedUrl) {
+    alert("Blocked URL not found.");
+    return;
+  }
+
+  const domain = new URL(blockedUrl).hostname;
+
+  chrome.storage.local.get({ trustedSites: [] }, function(result) {
+    const trustedSites = result.trustedSites;
+
+    if (!trustedSites.includes(domain)) {
+      trustedSites.push(domain);
+    }
+
+    chrome.storage.local.set({ trustedSites: trustedSites }, function() {
+      window.location.href = blockedUrl;
+    });
+  });
+});

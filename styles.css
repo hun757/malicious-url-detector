@@ -148,14 +148,18 @@ ul {
   margin-top: 25px;
   background: #dc2626;
   color: white;
-  border: none;
-  border-radius: 999px;
-  padding: 13px 28px;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
 }
 
 .back-button:hover {
   background: #b91c1c;
 }
+
+.trust-button {
+  background: #2563eb;
+  color: white;
+}
+
+.trust-button:hover {
+  background: #1d4ed8;
+}
+

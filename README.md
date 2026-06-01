@@ -54,6 +54,8 @@ Each suspicious indicator increases the overall risk score.
 Example suspicious URL:
 
 http://secure-login-paypal.verify-account.xyz
+http://neverssl.com/login-bank-secure-update-password-free-gift
+http://example.com/login-bank-secure-update-password-free-gift
 
 Possible detection results:
 
