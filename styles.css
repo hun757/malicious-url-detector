@@ -1,0 +1,45 @@
+body {
+  width: 320px;
+  font-family: Arial, sans-serif;
+  padding: 15px;
+  background-color: #f8f9fa;
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.url-box {
+  word-break: break-all;
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.status-box {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  background: white;
+}
+
+.safe {
+  color: green;
+  font-weight: bold;
+}
+
+.suspicious {
+  color: orange;
+  font-weight: bold;
+}
+
+.high-risk {
+  color: red;
+  font-weight: bold;
+}
+
+ul {
+  padding-left: 20px;
+}

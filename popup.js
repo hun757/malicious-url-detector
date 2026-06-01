@@ -7,7 +7,17 @@ chrome.tabs.query(
 
     const result = analyzeURL(currentURL);
 
-    document.getElementById("status").textContent = result.status;
+    const statusElement = document.getElementById("status");
+    statusElement.textContent = result.status;
+
+    if (result.status === "Safe") {
+      statusElement.className = "safe";
+    } else if (result.status === "Suspicious") {
+      statusElement.className = "suspicious";
+    } else {
+      statusElement.className = "high-risk";
+    }
+
     document.getElementById("score").textContent = result.score;
 
     const reasonsList = document.getElementById("reasons");

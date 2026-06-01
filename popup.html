@@ -2,18 +2,19 @@
 <html>
 <head>
   <title>URL Detector</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <h2>Malicious URL Detector</h2>
 
   <p><strong>Current URL:</strong></p>
-  <p id="url">Loading...</p>
+  <div id="url" class="url-box">Loading...</div>
 
-  <hr>
-
-  <p><strong>Status:</strong> <span id="status">Checking...</span></p>
-  <p><strong>Risk Score:</strong> <span id="score">0</span>/100</p>
+  <div class="status-box">
+    <p><strong>Status:</strong> <span id="status">Checking...</span></p>
+    <p><strong>Risk Score:</strong> <span id="score">0</span>/100</p>
+  </div>
 
   <p><strong>Reasons:</strong></p>
   <ul id="reasons"></ul>
