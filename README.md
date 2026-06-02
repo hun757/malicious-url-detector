@@ -111,17 +111,43 @@ The backend simulates phishing probability prediction using weighted URL feature
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/malicious-url-detector.git
+git clone https://github.com/hun757/malicious-url-detector.git
 ```
 
-### 2. Start the Python Backend
+### 2. Navigate to the Project Folder
+
+```bash
+cd malicious-url-detector
+```
+
+### 3. Create a Python Virtual Environment
+
+```bash
+python -m venv .venv
+```
+
+### 4. Activate the Virtual Environment
+
+#### Windows PowerShell
+
+```bash
+.venv\Scripts\activate
+```
+
+### 5. Install Backend Dependencies
+
+```bash
+pip install flask flask-cors
+```
+
+### 6. Start the Python Backend
 
 ```bash
 cd backend
 python app.py
 ```
 
-### 3. Load the Extension
+### 7. Load the Chrome Extension
 
 1. Open Chrome
 2. Go to:
@@ -132,7 +158,8 @@ chrome://extensions
 
 3. Enable Developer Mode
 4. Click "Load unpacked"
-5. Select the project folder
+5. Select the `malicious-url-detector` folder
+
 
 ---
 
