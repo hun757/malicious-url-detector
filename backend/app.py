@@ -1,63 +1,78 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+"""Local URL analysis API. It never opens the submitted URL."""
+
+from flask import Flask, jsonify, request
+
+from features import valid_url
+from predictor import Predictor
+from threat_intel import SafeBrowsing
+
 
 app = Flask(__name__)
-CORS(app)
 
-def simple_ml_prediction(url):
-    score = 0
+# Load the trained model when the server starts.
+model = Predictor()
+intel = SafeBrowsing()
 
-    suspicious_words = [
-        "login",
-        "verify",
-        "secure",
-        "bank",
-        "password",
-        "free",
-        "gift"
-    ]
 
-    url_lower = url.lower()
+def extension_origin(origin):
+    return (
+        origin.startswith("chrome-extension://")
+        and origin.removeprefix("chrome-extension://").isalnum()
+    )
 
-    if not url.startswith("https://"):
-        score += 20
 
-    if len(url) > 80:
-        score += 15
+@app.after_request
+def extension_cors(response):
+    origin = request.headers.get("Origin", "")
 
-    if any(word in url_lower for word in suspicious_words):
-        score += 30
+    if extension_origin(origin):
+        response.headers["Access-Control-Allow-Origin"] = origin
+        response.headers["Vary"] = "Origin"
+        response.headers["Access-Control-Allow-Methods"] = "POST, OPTIONS"
+        response.headers["Access-Control-Allow-Headers"] = "Content-Type"
 
-    if "-" in url:
-        score += 10
+    return response
 
-    if "." in url:
-        score += 5
 
-    if score > 100:
-        score = 100
-
-    label = "Legitimate"
-
-    if score >= 70:
-        label = "Phishing Likely"
-    elif score >= 40:
-        label = "Suspicious"
-
-    return score, label
-
-@app.route("/predict", methods=["POST"])
+@app.route("/predict", methods=["POST", "OPTIONS"])
 def predict():
-    data = request.get_json()
-    url = data.get("url", "")
+    if request.method == "OPTIONS":
+        return ("", 204)
 
-    probability, label = simple_ml_prediction(url)
+    origin = request.headers.get("Origin")
+
+    if origin and not extension_origin(origin):
+        return jsonify({"error": "Extension origin required"}), 403
+
+    data = request.get_json(silent=True)
+    url = data.get("url") if isinstance(data, dict) else None
+
+    if not valid_url(url):
+        return jsonify({
+            "error": "Expected an HTTP(S) URL of at most 4096 characters"
+        }), 400
+
+    probability = model.predict(url)
+
+    if probability is None:
+        label = "Unavailable"
+    elif probability >= 0.7:
+        label = "Phishing Likely"
+    elif probability >= 0.4:
+        label = "Suspicious"
+    else:
+        label = "Legitimate"
 
     return jsonify({
-        "url": url,
-        "phishing_probability": probability,
-        "ml_label": label
+        "phishing_probability": (
+            round(probability * 100, 2)
+            if probability is not None
+            else None
+        ),
+        "ml_label": label,
+        "threat_intel": intel.check(url),
     })
 
+
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(host="127.0.0.1", port=5000, debug=False)

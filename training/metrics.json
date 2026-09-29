@@ -1,0 +1,24 @@
+{
+  "source": "Kaitholikkal and Arthi B, Mendeley Data V1 (2024), DOI 10.17632/vfszbj9b36.1, CC BY 4.0; downloaded 2026-09-30",
+  "trained_at_utc": "2026-09-29T16:19:34.154336+00:00",
+  "dataset_sha256": "cb12499c5b49f51a8ea070f22f7664785059004db3d6cdd048220f92cdaf28fe",
+  "split": "GroupShuffleSplit by hostname, 20% test, random_state=42; model trained on training partition only",
+  "train_size": 367505,
+  "test_size": 82623,
+  "class_counts": {
+    "benign": 345702,
+    "malicious": 104426
+  },
+  "precision": 0.9956712214457077,
+  "recall": 0.9710085956970652,
+  "f1": 0.9831852710184112,
+  "false_positive_rate": 0.001318255455671675,
+  "false_negative_rate": 0.028991404302934745,
+  "confusion_matrix": {
+    "tn": 62879,
+    "fp": 83,
+    "fn": 570,
+    "tp": 19091
+  },
+  "notes": "URL-only lexical model. Holdout estimates depend on dataset quality; not a production safety guarantee."
+}

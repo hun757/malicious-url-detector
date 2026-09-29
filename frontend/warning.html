@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Site warning · URL Shield</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="warning-page">
+  <main class="warning-container">
+    <div class="warning-brand">
+      <span class="brand-mark">M</span>
+      <span>URL Shield</span>
+    </div>
+
+    <div class="warning-heading">
+      <div class="warning-symbol" aria-hidden="true">!</div>
+      <div>
+        <p class="warning-eyebrow">SITE WARNING</p>
+        <h1>This site may be unsafe</h1>
+        <p class="warning-message">
+          URL Shield found several risk signals in this address.
+          Check the details before you continue.
+        </p>
+      </div>
+    </div>
+
+    <div class="warning-summary">
+      <div>
+        <span class="summary-label">RISK LEVEL</span>
+        <strong class="risk-level">High risk</strong>
+      </div>
+      <div>
+        <span class="summary-label">RISK SCORE</span>
+        <strong class="risk-value"><span id="score">—</span><small>/100</small></strong>
+      </div>
+    </div>
+
+    <section class="warning-section">
+      <h2>Website address</h2>
+      <div id="blockedUrl" class="warning-url"></div>
+    </section>
+
+    <section class="warning-section">
+      <h2>Why was this flagged?</h2>
+      <p class="section-hint">
+        These signals indicate risk; they do not confirm that a site is malicious.
+      </p>
+      <ul id="reasons" class="warning-reasons"></ul>
+    </section>
+
+    <div class="warning-actions">
+      <button id="backBtn" class="back-button">Go to a safe page</button>
+      <button id="trustBtn" class="trust-button">Trust this site and continue</button>
+    </div>
+
+    <p class="warning-footnote">
+      Continuing adds this domain to your trusted sites. URL Shield redirects
+      after navigation begins, so avoid entering information on a flagged site.
+    </p>
+  </main>
+
+  <script src="warning.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard · URL Shield</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-page">
+  <main class="dashboard-container">
+    <header class="dashboard-header">
+      <div>
+        <div class="dashboard-brand">
+          <span class="dashboard-brand-mark">M</span>
+          <span>URL Shield</span>
+        </div>
+        <h1>Security overview</h1>
+        <p class="dashboard-subtitle">
+          Your 50 most recent URL scans. Records stay in this browser.
+        </p>
+      </div>
+      <span class="dashboard-local">● Local activity</span>
+    </header>
+
+    <section class="stats-grid" aria-label="Scan statistics">
+      <div class="stat-card">
+        <p>URLs scanned</p>
+        <h2 id="totalScanned">0</h2>
+        <span>Recent activity</span>
+      </div>
+
+      <div class="stat-card safe-card">
+        <p>Safe</p>
+        <h2 id="safeCount">0</h2>
+        <span>Low risk score</span>
+      </div>
+
+      <div class="stat-card suspicious-card">
+        <p>Suspicious</p>
+        <h2 id="suspiciousCount">0</h2>
+        <span>Review recommended</span>
+      </div>
+
+      <div class="stat-card high-risk-card">
+        <p>High risk</p>
+        <h2 id="highRiskCount">0</h2>
+        <span>Warning shown</span>
+      </div>
+
+      <div class="stat-card blocked-card">
+        <p>Redirected</p>
+        <h2 id="blockedCount">0</h2>
+        <span>Sent to warning page</span>
+      </div>
+    </section>
+
+    <section class="log-section">
+      <div class="log-header">
+        <div>
+          <h2>Recent scans</h2>
+          <p>Results from automatic URL checks</p>
+        </div>
+        <div class="log-actions">
+          <button id="exportBtn" class="export-button">Export JSON</button>
+          <button id="clearBtn" class="clear-button">Clear history</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Domain</th>
+              <th>Risk score</th>
+              <th>Status</th>
+              <th>Redirected</th>
+            </tr>
+          </thead>
+          <tbody id="logTable"></tbody>
+        </table>
+      </div>
+
+      <p id="emptyState" class="empty-state" hidden>
+        No scans yet. Visit a website to see activity here.
+      </p>
+    </section>
+
+    <p class="dashboard-note">
+      Scores are estimates based on URL characteristics. A “Safe” result does not
+      guarantee that a website is trustworthy.
+    </p>
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

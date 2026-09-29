@@ -141,3 +141,14 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+.vscode/
+.venv/
+__pycache__/
+
+# Python model training and local source data
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+data/*.csv

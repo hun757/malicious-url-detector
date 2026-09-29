@@ -2,7 +2,17 @@ const params = new URLSearchParams(window.location.search);
 
 const blockedUrl = params.get("blockedUrl");
 const score = params.get("score");
-const reasons = JSON.parse(params.get("reasons") || "[]");
+let reasons = [];
+
+try {
+  const parsed = JSON.parse(params.get("reasons") || "[]");
+
+  if (Array.isArray(parsed)) {
+    reasons = parsed;
+  }
+} catch (error) {
+  reasons = [];
+}
 
 document.getElementById("blockedUrl").textContent = blockedUrl;
 document.getElementById("score").textContent = score;

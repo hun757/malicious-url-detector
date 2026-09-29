@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Malicious URL Detector",
+  "version": "2.0",
+  "description": "Analyze URLs with heuristics, a trained model and optional threat intelligence",
+
+  "permissions": [
+    "tabs",
+    "webNavigation",
+    "storage"
+  ],
+
+  "host_permissions": [
+    "http://127.0.0.1:5000/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
