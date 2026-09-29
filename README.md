@@ -4,6 +4,12 @@ A Chrome extension that analyzes visited URLs using browser-side heuristics, a t
 
 This project focuses on explaining **how a detection decision was made**, evaluating classification errors, and documenting the limits of URL-only analysis.
 
+<img width="1510" height="859" alt="image" src="https://github.com/user-attachments/assets/301714c8-1a00-4032-a13c-24ce6c9ff710" />
+
+
+
+
+
 ## Features
 
 - Monitors main-frame HTTP and HTTPS navigations
